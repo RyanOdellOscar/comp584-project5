@@ -1,0 +1,96 @@
+/* CSS for the project */
+/* Border box declaration 
+https://www.paulirish.com/2012/box-sizing-border-box-ftw/ */
+html {
+  box-sizing: border-box;
+}
+/* inherit border-box on all elements in the universe and before and after
+ */
+*, 
+*:before, 
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+	font-family: Arial, Geneva, sans-serif;
+}
+a {
+	color: #2772B0;
+}
+.animation {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin: 20px auto;
+	width: fit-content;
+}
+.logo.js {
+	width: 200px;
+	max-width: 60vw;
+	height: auto;
+	animation: logo-pulse 1.5s ease-in-out infinite;
+}
+@keyframes logo-pulse {
+	50% { filter: drop-shadow(0 0 12px #577aec); }
+}
+.data {
+	width: 97%;
+	max-width: 1200px;
+	margin: 0 auto;
+	background-color: #577aec;
+	display: grid;
+	grid-gap: 12px;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	grid-template-rows: auto;
+	padding: 16px;
+	border: 1px solid #2a2727;
+	border-radius: 10px;
+	align-items: start;
+}
+
+.data > div {
+	padding: 12px;
+	border-radius: 6px;
+	background: #fff;
+	overflow-wrap: anywhere;
+}
+
+h1 {
+	font-size: 2rem;
+	text-align: center;
+	margin-bottom: 1rem;
+	padding: 1rem;
+	grid-column: 1 / 3;
+	grid-row: 1 / 2;
+}
+
+#product-name {
+	grid-column: 1 / 2;
+	grid-row: 2 / 3;
+}
+#product-code {
+	grid-column: 2 / 3;
+	grid-row: 2 / 3;
+}
+#product-nutriscore {
+	grid-column: 1 / 2;
+	grid-row: 3 / 4;
+}
+#product-nutriments {
+	grid-column: 2 / 3;
+	grid-row: 3 / 4;
+}
+
+@media (max-width: 650px) {
+	.data {
+		grid-template-columns: 1fr;
+	}
+
+	#product-code,
+	#product-nutriscore,
+	#product-nutriments {
+		grid-column: 1;
+		grid-row: auto;
+	}
+}
