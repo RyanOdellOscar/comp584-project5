@@ -4,7 +4,7 @@
 var product;
 const NutellaData = "https://world.openfoodfacts.org/api/v2/product/3017624010701?fields=product_name,nutriscore_data,nutriments,nutrition_grades";
 const logoLink = "https://images.openfoodfacts.net/images/products/301/762/401/0701/front_en.54.400.jpg"
-
+// links and DOM elements
 const logo = document.querySelector('.logo.js');
 const button = document.querySelector('.animation button');
 let rotations = 0;
@@ -12,7 +12,7 @@ let rotations = 0;
 import { animate, stagger, splitText } from 'https://cdn.jsdelivr.net/npm/animejs@4.2.2/+esm';
 
 const { chars } = splitText('h1', { words: false, chars: true });
-
+// Animation for heading
 animate(chars, {
   // Property keyframes
   y: [
@@ -56,10 +56,10 @@ fetch(NutellaData)
     document.getElementById('code').textContent = json.code;
     const nutriscore = document.getElementById('nutriscore');
     nutriscore.textContent = Object.entries(product.nutriscore_data || {})
-      .map(([key, value]) => {
+      .map(([key, value]) => { // maps json to readable format
         if (key === 'components' && value) {
           return Object.entries(value).map(([type, components]) =>
-            `${type}:\n${components.map(({ id, value, unit, points, points_max }) =>
+            `${type}:\n${components.map(({ id, value, unit, points, points_max }) => // make sures that component object in product object is resolved into individual components and joined with the rest
               `  ${id}: ${value ?? '—'}${unit ? ` ${unit}` : ''} (points: ${points}/${points_max})`
             ).join('\n')}`
           ).join('\n');
@@ -76,7 +76,7 @@ fetch(NutellaData)
     nutriments.style.whiteSpace = 'pre-line';
     console.log(product);
   })
-  .catch((error) => {
+  .catch((error) => { // checks for errors
     console.error("Error fetching data:", error);
     const apiError = document.getElementById('api-error');
     apiError.textContent = 'Could not load product data. Check your connection and try again.';

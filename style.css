@@ -18,6 +18,9 @@ body {
 a {
 	color: #2772B0;
 }
+
+/* Animation section */
+
 .animation {
 	display: flex;
 	align-items: center;
@@ -34,6 +37,8 @@ a {
 @keyframes logo-pulse {
 	50% { filter: drop-shadow(0 0 12px #577aec); }
 }
+
+/* Data wrapper for grid display */
 .data {
 	width: 97%;
 	max-width: 1200px;
@@ -49,6 +54,7 @@ a {
 	align-items: start;
 }
 
+/* divs wrapped in data section */
 .data > div {
 	padding: 12px;
 	border-radius: 6px;
@@ -64,7 +70,7 @@ h1 {
 	grid-column: 1 / 3;
 	grid-row: 1 / 2;
 }
-
+/* grid items */
 #product-name {
 	grid-column: 1 / 2;
 	grid-row: 2 / 3;
@@ -86,7 +92,7 @@ h1 {
 	grid-column: 1 / -1;
 	color: #8b0000;
 }
-
+/* Adjustments for smaller screens */
 @media (max-width: 650px) {
 	.data {
 		grid-template-columns: 1fr;
